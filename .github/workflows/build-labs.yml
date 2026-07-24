@@ -48,10 +48,8 @@ jobs:
       matrix: ${{ fromJson(needs.generate.outputs.matrix) }}
     steps:
       - name: Build + push + sign ${{ matrix.lab }}-lab
-        uses: ublue-os/build-action@v1
+        uses: ublue-os/build-action@1.0.1
         with:
-          squash: false
-          arch: amd64
           image_name: ${{ matrix.lab }}-lab
           version: latest
           signing_key: ${{ secrets.SIGNING_SECRET }}
@@ -68,10 +66,8 @@ jobs:
       matrix: ${{ fromJson(needs.generate.outputs.matrix) }}
     steps:
       - name: Build (no push) ${{ matrix.lab }}-lab
-        uses: ublue-os/build-action@v1
+        uses: ublue-os/build-action@1.0.1
         with:
-          squash: false
-          arch: amd64
           image_name: ${{ matrix.lab }}-lab
           version: pr
           signing_key: ${{ secrets.SIGNING_SECRET }}
