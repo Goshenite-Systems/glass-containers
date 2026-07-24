@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local build artifacts
+*.tar
+*.tar.gz
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
