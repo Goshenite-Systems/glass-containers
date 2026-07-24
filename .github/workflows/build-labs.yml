@@ -24,7 +24,7 @@ permissions:
 
 jobs:
   generate:
-    runs-on: fedora-latest
+    runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.gen.outputs.matrix }}
     steps:
@@ -41,7 +41,7 @@ jobs:
 
   build:
     needs: generate
-    runs-on: fedora-latest
+    runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
     strategy:
       fail-fast: false
@@ -61,7 +61,7 @@ jobs:
 
   pull-request:
     needs: generate
-    runs-on: fedora-latest
+    runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     strategy:
       fail-fast: false
