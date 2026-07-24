@@ -15,7 +15,11 @@ import argparse, json, shutil
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SPLIT = Path("/home/kali/goshenite/glass-bundles/references/kali/glass-split.json")
+# Vendored split data (copied from glass-bundles/references/kali/glass-split.json) so
+# this repo is self-contained in CI. Falls back to a local glass-bundles checkout.
+SPLIT = HERE / "references" / "glass-split.json"
+if not SPLIT.exists():
+    SPLIT = Path("/home/kali/goshenite/glass-bundles/references/kali/glass-split.json")
 
 # bundle key -> lab image name (must match glass-bundles materializer LAB_ALIAS)
 ALIAS = {"information-gathering": "osint", "reverse-engineering": "reversing",
