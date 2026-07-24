@@ -51,6 +51,7 @@ jobs:
         uses: ublue-os/build-action@1.0.1
         with:
           image_name: ${{ matrix.lab }}-lab
+          image_variant: main
           version: latest
           signing_key: ${{ secrets.SIGNING_SECRET }}
           extra_build_args: |
@@ -69,6 +70,7 @@ jobs:
         uses: ublue-os/build-action@1.0.1
         with:
           image_name: ${{ matrix.lab }}-lab
+          image_variant: main
           version: pr
           signing_key: ${{ secrets.SIGNING_SECRET }}
           extra_build_args: |
